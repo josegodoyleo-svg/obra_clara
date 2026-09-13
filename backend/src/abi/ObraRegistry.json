@@ -1,0 +1,142 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "uint256", "name": "idObra", "type": "uint256" },
+      { "indexed": false, "internalType": "bytes32", "name": "hashNuevo", "type": "bytes32" },
+      { "indexed": true, "internalType": "address", "name": "revisor", "type": "address" }
+    ],
+    "name": "CambioAprobado",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "uint256", "name": "idObra", "type": "uint256" },
+      { "indexed": false, "internalType": "bytes32", "name": "hashAnterior", "type": "bytes32" },
+      { "indexed": false, "internalType": "bytes32", "name": "hashNuevo", "type": "bytes32" }
+    ],
+    "name": "CambioDetectado",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "uint256", "name": "idObra", "type": "uint256" },
+      { "indexed": false, "internalType": "bytes32", "name": "hashRechazado", "type": "bytes32" },
+      { "indexed": true, "internalType": "address", "name": "revisor", "type": "address" }
+    ],
+    "name": "CambioRechazado",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "uint256", "name": "idObra", "type": "uint256" },
+      { "indexed": false, "internalType": "string", "name": "nombre", "type": "string" },
+      { "indexed": true, "internalType": "address", "name": "administrador", "type": "address" },
+      { "indexed": false, "internalType": "bytes32", "name": "hashInicial", "type": "bytes32" }
+    ],
+    "name": "ObraRegistrada",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "idObra", "type": "uint256" },
+      { "internalType": "bytes32", "name": "hashNuevo", "type": "bytes32" }
+    ],
+    "name": "aprobarCambio",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "idObra", "type": "uint256" }
+    ],
+    "name": "obtenerHashAprobado",
+    "outputs": [
+      { "internalType": "bytes32", "name": "", "type": "bytes32" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "idObra", "type": "uint256" }
+    ],
+    "name": "obtenerObra",
+    "outputs": [
+      { "internalType": "uint256", "name": "id", "type": "uint256" },
+      { "internalType": "string", "name": "nombre", "type": "string" },
+      { "internalType": "string", "name": "descripcion", "type": "string" },
+      { "internalType": "bool", "name": "congelada", "type": "bool" },
+      { "internalType": "address", "name": "administrador", "type": "address" },
+      { "internalType": "uint256", "name": "totalVersiones", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "idObra", "type": "uint256" }
+    ],
+    "name": "obtenerVersiones",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "bytes32", "name": "hash", "type": "bytes32" },
+          { "internalType": "uint256", "name": "timestamp", "type": "uint256" },
+          { "internalType": "enum ObraRegistry.EstadoVersion", "name": "estado", "type": "uint8" },
+          { "internalType": "address", "name": "revisor", "type": "address" }
+        ],
+        "internalType": "struct ObraRegistry.Version[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "idObra", "type": "uint256" }
+    ],
+    "name": "rechazarCambio",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "nombre", "type": "string" },
+      { "internalType": "string", "name": "descripcion", "type": "string" },
+      { "internalType": "bytes32", "name": "hashInicial", "type": "bytes32" }
+    ],
+    "name": "registrarObra",
+    "outputs": [
+      { "internalType": "uint256", "name": "idObra", "type": "uint256" }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "idObra", "type": "uint256" },
+      { "internalType": "bytes32", "name": "hashNuevo", "type": "bytes32" }
+    ],
+    "name": "reportarCambio",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalObras",
+    "outputs": [
+      { "internalType": "uint256", "name": "", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
